@@ -1,0 +1,25 @@
+{
+  "name": "devilDB",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/bageldb/devilDB.git",
+  "author": "Neveh Allon <bagel4neveh@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.3.0",
+    "@vuepress/plugin-active-header-links": "^2.0.0-beta.27",
+    "@vuepress/plugin-search": "^2.0.0-beta.27",
+    "@vuepress/shared-utils": "^1.9.7",
+    "postcss": "^8.4.7",
+    "vuepress": "^2.0.0-beta.27",
+    "webpack": "5"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs --clean-cache --clean-temp",
+    "docs:build": "vuepress build docs"
+  },
+  "dependencies": {
+    "node-html-parser": "^5.2.0",
+    "slugify": "^1.6.5"
+  }
+}

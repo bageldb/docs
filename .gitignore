@@ -1,3 +1,29 @@
+### OSX ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### Node ###
 # Logs
 logs
 *.log
@@ -25,12 +51,6 @@ coverage
 # nyc test coverage
 .nyc_output
 
-# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
-
-# Bower dependency directory (https://bower.io/)
-bower_components
-
 # node-waf configuration
 .lock-wscript
 
@@ -53,12 +73,6 @@ typings/
 # Optional eslint cache
 .eslintcache
 
-# Microbundle cache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
-
 # Optional REPL history
 .node_repl_history
 
@@ -68,6 +82,9 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
+# pnpm link folder
+pnpm-global
+
 # dotenv environment variables file
 .env
 .env.test
@@ -75,18 +92,8 @@ typings/
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 
-# Next.js build output
-.next
-
-# Nuxt.js build / generate output
-.nuxt
-dist
-
-# Gatsby files
-.cache/
-# Comment in the public line in if your project uses Gatsby and *not* Next.js
-# https://nextjs.org/blog/next-9-1#public-directory-support
-# public
+# rollup.js default build output
+dist/
 
 # vuepress build output
 .vuepress/dist
@@ -94,11 +101,17 @@ dist
 # Serverless directories
 .serverless/
 
-# FuseBox cache
-.fusebox/
+# Temporary folders
+tmp/
+temp/
+TODOs.md
+src/api/index.json
+src/examples/data.json
+src/tutorial/data.json
+draft.md
 
-# DynamoDB Local files
-.dynamodb/
-
-# TernJS port file
-.tern-port
+node_modules
+.temp
+.cache
+docs/docks_review/
+docks_next/
