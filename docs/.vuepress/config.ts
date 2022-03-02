@@ -35,11 +35,11 @@ export default defineUserConfig<DefaultThemeOptions>({
       { text: "Login", link: "https://app.bageldb.com" },
       { text: "Sign Up Now", link: "https://app.bageldb.com/signup" }
     ],
+    sidebar,
     socialLinks: [
       { icon: 'github', link: 'https://github.com/bageldb/' },
       { icon: 'discord', link: 'https://discord.gg/49hq7wu' }
-    ]
-    sidebar,
+    ],
   },
   plugins: [
     '@vuepress/plugin-search' //TODO: @vuepress/plugin-docsearch@next
