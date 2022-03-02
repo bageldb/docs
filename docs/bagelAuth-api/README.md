@@ -4,7 +4,7 @@ Bagel Auth is currently in **beta**.
 
 See [here](../quick-guides#getting-started-with-bagel-auth) for creating an API token, installing and initialising the BagelDB client library.
 ::: tip Note
-Bagel Auth with the JS library is designed to be used on a browser, expect for the update password function which will only run using NodeJS.
+Bagel Auth with the JS library is designed to be used on a browser, except for the update password function which will only run using NodeJS.
 :::
 
 ## User Creation
