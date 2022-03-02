@@ -33,7 +33,9 @@ export default defineUserConfig<DefaultThemeOptions>({
       { text: "Home", link: "/" },
       { text: "Examples", link: "/examples/" },
       { text: "Login", link: "https://app.bageldb.com" },
-      { text: "Sign Up Now", link: "https://app.bageldb.com/signup" }
+      { text: "Sign Up Now", link: "https://app.bageldb.com/signup" },
+      { icon: 'github', link: 'https://github.com/bageldb/' },
+      { icon: 'discord', link: 'https://discord.gg/49hq7wu' }
     ],
     sidebar,
   },
