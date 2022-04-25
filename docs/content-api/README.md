@@ -132,7 +132,7 @@ BagelDB has built in pagination, you can set the number of items per page and th
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("articles").perPage(50).page(2).get()
+db.collection("articles").perPage(50).pageNumber(2).get()
 
 ```
 </CodeGroupItem>
