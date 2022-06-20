@@ -28,9 +28,9 @@ features:
 <div class="bagelLogo -slit-in-horizontal -spin rotate">
   <!-- <img class="logo0" src="/assets/images/bagel-blue-drop-shadow.svg"> -->
   <img class="logo0" src="/assets/images/bagel-blue.svg">
-  <img class="logo1" src="/assets/images/bagel-blue.svg">
+  <!-- <img class="logo1" src="/assets/images/bagel-blue.svg">
   <img class="logo2" src="/assets/images/bagel-blue.svg">
-  <img class="logo3" src="/assets/images/bagel-blue.svg">
+  <img class="logo3" src="/assets/images/bagel-blue.svg"> -->
 </div>
 
 ### As Easy as 1, 2, 3
