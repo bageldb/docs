@@ -6,7 +6,7 @@
 
 BagelDB is a content management system with flexible database with user login
 
-## Setup
+### Setup
 
 - Install BagelDB-Nuxt in your project
 
@@ -26,7 +26,7 @@ npm i @bageldb/bageldb-nuxt
 
 The default alias is `$bageldb` but can be set easily in the import. Two instances can be used in one project, but they must have different instances.
 
-## Use It
+### Use It
 
 The db instance can be accessed globally anywhere in the code
 
@@ -52,7 +52,7 @@ export default {
 };
 ```
 
-## Authentication
+### Authentication
 
 Using Auth with Nuxt.js works the same as evey BagelDB js framework, by using the `users()` method.
 
