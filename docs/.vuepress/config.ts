@@ -15,6 +15,7 @@ const sidebar: SidebarConfig =  [
     'text': 'Bagel Auth REST-API',
     link: '/bagelAuth-api/rest/',
   },
+  '/integrations/',
   '/examples/',
   ];
 
@@ -31,6 +32,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     lastUpdated: true,
     navbar: [
       { text: "Home", link: "/" },
+      { text: "Integrations", link: "/integrations/" },
       { text: "Examples", link: "/examples/" },
       { text: "Login", link: "https://app.bageldb.com" },
       { text: "Sign Up Now", link: "https://app.bageldb.com/signup" },
