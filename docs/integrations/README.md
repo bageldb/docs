@@ -2,17 +2,34 @@
 
 ## Nuxt.js
 
-# BagelDB Client for NuxtJS
-
-BagelDB is a content management system with flexible database with user login
-
 ### Setup
 
 - Install BagelDB-Nuxt in your project
 
+<CodeGroup>
+<CodeGroupItem title="npm">
+
 ```sh
 npm i @bageldb/bageldb-nuxt
 ```
+
+</CodeGroupItem>
+
+<CodeGroupItem title="yarn">
+
+```sh
+yarn add @bageldb/bageldb-nuxt
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="pnpm">
+
+```sh
+pnpm add @bageldb/bageldb-nuxt
+```
+
+</CodeGroupItem>
+</CodeGroup>
 
 - Add Module to nuxtConfig.js
 

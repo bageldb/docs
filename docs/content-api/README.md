@@ -10,10 +10,30 @@ pageClass: api-docs-class
 
 <CodeGroup>
 <CodeGroupItem title="JS">
+<CodeGroup>
+<CodeGroupItem title="npm">
 
-```bash
+```sh
 npm i @bageldb/bagel-db
 ```
+
+</CodeGroupItem>
+
+<CodeGroupItem title="yarn">
+
+```sh
+yarn add @bageldb/bagel-db
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="pnpm">
+
+```sh
+pnpm add @bageldb/bagel-db
+```
+
+</CodeGroupItem>
+</CodeGroup>
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
@@ -24,6 +44,7 @@ npm i @bageldb/bagel-db
  2. Run the command:
         flutter pub get
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
@@ -33,13 +54,12 @@ npm i @bageldb/bagel-db
 <CodeGroupItem title="JS">
 
 ```javascript
-import Bagel from '@bageldb/bagel-db'
+import Bagel from '@bageldb/bagel-db';
 
 // or
 
-const Bagel = require('@bageldb/bagel-db')
+const Bagel = require('@bageldb/bagel-db');
 ```
-
 
 ```html
 <!-- or for cdn version -->
@@ -53,6 +73,7 @@ const Bagel = require('@bageldb/bagel-db')
 ```bash
 import 'package:bagel_db/bagel_db.dart';
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
@@ -62,9 +83,10 @@ import 'package:bagel_db/bagel_db.dart';
 <CodeGroupItem title="JS">
 
 ```js
-let API_TOKEN = "AUTH_TOKEN"
-let db = new Bagel(API_TOKEN)
+let API_TOKEN = 'AUTH_TOKEN';
+let db = new Bagel(API_TOKEN);
 ```
+
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
@@ -73,6 +95,7 @@ let db = new Bagel(API_TOKEN)
 String apiToken = "AUTH_TOKEN"
 BagelDB db = BagelDB(token: apiToken);
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
@@ -80,16 +103,16 @@ BagelDB db = BagelDB(token: apiToken);
 
 Retrieve multiple items from a collection
 
-- By default, this will return the first 100 items in the collection, in order to get a specific set of items see below
-  in Pagination
+- By default, this will return the first 100 items in the collection, in order to get a specific set of items see below in Pagination
 - Nested collection fields will not be retrieved unless they are specifically projected on using the `projectOn` feature (see below)
 
 <CodeGroup>
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("articles").get()
+db.collection('articles').get();
 ```
+
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
@@ -97,13 +120,12 @@ db.collection("articles").get()
 ```dart
 db.collection("articles").get()
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
 :::tip Note:
-<img alt="New Collection Creation" src="/assets/images/New_Collection_wide.png"/> <br/>
-**Collection Name** is for internal use only. <br/>
-Use the automatically generated **Collection ID** (case sensitive)
+<img alt="New Collection Creation" src="/assets/images/New_Collection_wide.png"/> <br/> **Collection Name** is for internal use only. <br/> Use the automatically generated **Collection ID** (case sensitive)
 :::
 
 For a nested collection, `item()` and `collection()` can be chained till the correct collection and item is reached
@@ -112,8 +134,9 @@ For a nested collection, `item()` and `collection()` can be chained till the cor
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("books").item("sds232323d").collection("reviews").get()
+db.collection('books').item('sds232323d').collection('reviews').get();
 ```
+
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
@@ -121,6 +144,7 @@ db.collection("books").item("sds232323d").collection("reviews").get()
 ```dart
 db.collection("articles").item("sds232323d").collection("reviews").get()
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
@@ -132,9 +156,9 @@ BagelDB has built in pagination, you can set the number of items per page and th
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("articles").perPage(50).pageNumber(2).get()
-
+db.collection('articles').perPage(50).pageNumber(2).get();
 ```
+
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
@@ -143,16 +167,16 @@ db.collection("articles").perPage(50).pageNumber(2).get()
 db.collection("articles").perPage(50).pageNumber(2).get()
 
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
 ### Projection
 
-It is possible to `project on` and `project off` for all fields in an item, enabling you to retrieve only exactly what is required in
-the response body
+It is possible to `project on` and `project off` for all fields in an item, enabling you to retrieve only exactly what is required in the response body
 
 - It is not possible to mix both projectOn and projectOff
-- Metadata field will always be retrieved unless explicitly projectedOff i.e _id, _lastUpdateDate and _createdDate
+- Metadata field will always be retrieved unless explicitly projectedOff i.e \_id, \_lastUpdateDate and \_createdDate
 
 <CodeGroup>
 <CodeGroupItem title="JS">
@@ -162,6 +186,7 @@ db.collection("articles").projectOn("title,name").get()
 <--- OR ---->
 db.collection("articles").projectOff("title,name").get()
 ```
+
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
@@ -169,6 +194,7 @@ db.collection("articles").projectOff("title,name").get()
 ```dart
 
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
@@ -189,11 +215,11 @@ Method: query(key, operator, value)
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("books").query("name", "=", "Of Mice and Men").get()
+db.collection('books').query('name', '=', 'Of Mice and Men').get();
 
-db.collection("books").query("bookName","!=", "Of Mice and Men").get()
-
+db.collection('books').query('bookName', '!=', 'Of Mice and Men').get();
 ```
+
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
@@ -203,6 +229,7 @@ db.collection("books").query("name", "=", "Of Mice and Men").get()
 
 db.collection("books").query("bookName","!=", "Of Mice and Men").get()
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
@@ -210,17 +237,15 @@ db.collection("books").query("bookName","!=", "Of Mice and Men").get()
 
 `Item Reference` field
 
-An itemRef field expects to get a field name, operator, and comma separated values of one or more of the ids of the
-relevant referenced items. It will return one of any of the values provided
-
+An itemRef field expects to get a field name, operator, and comma separated values of one or more of the ids of the relevant referenced items. It will return one of any of the values provided
 
 <CodeGroup>
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("books").query("author.itemRefID", "=", "5e89a0a573c14625b8850a05,5ed9a0a573c14625ry830v52").get()
-
+db.collection('books').query('author.itemRefID', '=', '5e89a0a573c14625b8850a05,5ed9a0a573c14625ry830v52').get();
 ```
+
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
@@ -229,22 +254,21 @@ db.collection("books").query("author.itemRefID", "=", "5e89a0a573c14625b8850a05,
 db.collection("books").query("author.itemRefID", "=", "5e89a0a573c14625b8850a05,5ed9a0a573c14625ry830v52").get()
 
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
+The expected return for the above query are the list of books by either author ids provided. It will also return the books where the author is only one of many authors of that book.
 
-The expected return for the above query are the list of books by either author ids provided. It will also return the
-books where the author is only one of many authors of that book.
-
-The same applies for not operation `:!=:` where the expected return is to get all the items, that do not have any of the
-references provided
+The same applies for not operation `:!=:` where the expected return is to get all the items, that do not have any of the references provided
 
 <CodeGroup>
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("books").query("author.itemRefID","!=","5e89a0a573c14625b8850a05,5ed9a0a573c14625ry830v52").get()
+db.collection('books').query('author.itemRefID', '!=', '5e89a0a573c14625b8850a05,5ed9a0a573c14625ry830v52').get();
 ```
+
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
@@ -252,11 +276,11 @@ db.collection("books").query("author.itemRefID","!=","5e89a0a573c14625b8850a05,5
 ```dart
 db.collection("books").query("author.itemRefID","!=","5e89a0a573c14625b8850a05,5ed9a0a573c14625ry830v52").get()
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
-The expected response for the above query is all the books that do not contain any of the id's of the provided values.
-It will not return even where there are other authors to that book.
+The expected response for the above query is all the books that do not contain any of the id's of the provided values. It will not return even where there are other authors to that book.
 
 `GeoPoint` field
 
@@ -268,17 +292,21 @@ For example, to query for any hotel within 800 meters of the point 31.7549423598
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("hotels").query("location", BagelDB.WITHIN , BagelDB.GeoPointQuery(31.75494235983886, 35.214322441328534, 800)).get()
+db.collection('hotels')
+  .query('location', BagelDB.WITHIN, BagelDB.GeoPointQuery(31.75494235983886, 35.214322441328534, 800))
+  .get();
 ```
+
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
 
 ```dart
+
 ```
+
 </CodeGroupItem>
 </CodeGroup>
-
 
 ## Get a Single Item
 
@@ -288,10 +316,11 @@ Retrieve a single item
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("articles").item("5e89a0a573c14625b8850a05").get()
+db.collection('articles').item('5e89a0a573c14625b8850a05').get();
 //or for a nested item
-db.collection("books").item("sds232323d").collection("reviews").item("232323323").get()
+db.collection('books').item('sds232323d').collection('reviews').item('232323323').get();
 ```
+
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
@@ -299,6 +328,7 @@ db.collection("books").item("sds232323d").collection("reviews").item("232323323"
 ```dart
 db.collection("articles").item("5e89a0a573c14625b8850a05").get()
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
@@ -308,8 +338,9 @@ db.collection("articles").item("5e89a0a573c14625b8850a05").get()
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("articles").post({YOUR_OBJECT})
+db.collection('articles').post({ YOUR_OBJECT });
 ```
+
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
@@ -317,17 +348,13 @@ db.collection("articles").post({YOUR_OBJECT})
 ```dart
 db.collection("articles").post({YOUR_OBJECT})
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
-:::tip Note:
-<img alt="New Field Creation" src="/assets/images/New_Field.png"/> <br/>
-**Name** is for internal use only. <br/>
-Use the automatically generated **Slug** (case sensitive)
-:::
+:::tip Note: <img alt="New Field Creation" src="/assets/images/New_Field.png"/> <br/> **Name** is for internal use only. <br/> Use the automatically generated **Slug** (case sensitive) :::
 
 expected response
-
 
 ```json
 {
@@ -337,15 +364,15 @@ expected response
 
 ### Set Item ID
 
-When creating an item the `_id` will be set for you by the server. If you require to set the `_id` of the item, use
-the `set` method:
+When creating an item the `_id` will be set for you by the server. If you require to set the `_id` of the item, use the `set` method:
 
 <CodeGroup>
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("articles").item("YOUR_ITEM_ID").set({OBJECT_CHANGES})
+db.collection('articles').item('YOUR_ITEM_ID').set({ OBJECT_CHANGES });
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
@@ -357,8 +384,9 @@ If the `_id` is not unique the server will throw an error
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("articles").item("ITEM_ID").put({OBJECT_CHANGES})
+db.collection('articles').item('ITEM_ID').put({ OBJECT_CHANGES });
 ```
+
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
@@ -366,17 +394,18 @@ db.collection("articles").item("ITEM_ID").put({OBJECT_CHANGES})
 ```dart
 db.collection("articles").item("ITEM_ID").put({OBJECT_CHANGES})
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
 expected response
-
 
 ```json
 {
   "id": "ITEM_ID"
 }
 ```
+
 ### Update Reference Field
 
 It is possible to also update a specific reference field
@@ -385,8 +414,9 @@ It is possible to also update a specific reference field
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("articles").item("ITEM_ID").append("FIELD_SLUG", "ITEM_REF_ID")
+db.collection('articles').item('ITEM_ID').append('FIELD_SLUG', 'ITEM_REF_ID');
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
@@ -396,8 +426,9 @@ It is also possible to remove one item reference from a reference field
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("articles").item("ITEM_ID").unset("FIELD_SLUG", "ITEM_REF_ID")
+db.collection('articles').item('ITEM_ID').unset('FIELD_SLUG', 'ITEM_REF_ID');
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
@@ -405,16 +436,15 @@ db.collection("articles").item("ITEM_ID").unset("FIELD_SLUG", "ITEM_REF_ID")
 
 Will delete the entire item for good.
 
-
 ```js
-db.collection("articles").item("ITEM_ID").delete()
+db.collection('articles').item('ITEM_ID').delete();
 ```
+
 ## Uploading asset
 
 Method Signature: `uploadImage(imageSlug, {selectedImage, imageLink, altText})`
 
-selectedImage expects a file stream ```i.e fs.createReadStream(filename)```
-OR a blob
+selectedImage expects a file stream `i.e fs.createReadStream(filename)` OR a blob
 
 imageLink can be a link to a file stored somewhere on the web
 
@@ -427,29 +457,28 @@ The request is sent via a FormData request.
 
 ```js
 let image = {
-    selectedImage: fs.createReadStream('/foo/bar.jpg'),
-    altText: "johnny"
+  selectedImage: fs.createReadStream('/foo/bar.jpg'),
+  altText: 'johnny',
 };
-db.collection("users").item("3423432").uploadImage("profilePic", image);
-
+db.collection('users').item('3423432').uploadImage('profilePic', image);
 
 //OR
 
 let image = {
-    imageLink: "https://example.com/image.jpg",
-    altText: "johnny"
+  imageLink: 'https://example.com/image.jpg',
+  altText: 'johnny',
 };
-db.collection("users").item("3423432").uploadImage("profilePic", image);
+db.collection('users').item('3423432').uploadImage('profilePic', image);
 
 //OR
 
 let image = {
-    imageLink: "https://example.com/image.jpg",
-    altText: "johnny"
+  imageLink: 'https://example.com/image.jpg',
+  altText: 'johnny',
 };
-db.collection("users").item("3423432").uploadImage("profilePic", image);
-
+db.collection('users').item('3423432').uploadImage('profilePic', image);
 ```
+
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
@@ -458,6 +487,7 @@ db.collection("users").item("3423432").uploadImage("profilePic", image);
 File image = File('/Users/userName/Desktop/photo-test.jpeg');
 db.collection("users").item("3423432").uploadImage("profilePic", image)
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
@@ -465,10 +495,9 @@ db.collection("users").item("3423432").uploadImage("profilePic", image)
 
 See [live concepts](../concepts/#live-data) for more details about how live data works, and the form of the message received.
 
-In the JS library, the `listen` method takes two call-backs. The first is the `onMessage` function, which `listen` calls when it received a new message, inserting a [Message Event](https://developer.mozilla.org/en-US/docs/Web/API/MessageEvent). From there you can use the message event as required extracting out the message data. The data will be under `event.data` in a stringified json format.
-The second callback is the `onError` callback; when the listener encounters an error it calls the `onError` callback with error.
+In the JS library, the `listen` method takes two call-backs. The first is the `onMessage` function, which `listen` calls when it received a new message, inserting a [Message Event](https://developer.mozilla.org/en-US/docs/Web/API/MessageEvent). From there you can use the message event as required extracting out the message data. The data will be under `event.data` in a stringified json format. The second callback is the `onError` callback; when the listener encounters an error it calls the `onError` callback with error.
 
-Listen ***only*** returns events that occurred after the listen has been called. In order to get items that have occurred before the listen is called, a separate `get` request is required.
+Listen **_only_** returns events that occurred after the listen has been called. In order to get items that have occurred before the listen is called, a separate `get` request is required.
 
 If it appears that listening is not connecting, check that the API token has read access on the collection being listened to.
 
@@ -476,14 +505,15 @@ If it appears that listening is not connecting, check that the API token has rea
 <CodeGroupItem title="JS">
 
 ```js
-let messages = []
+let messages = [];
 let onMessageEvent = (event) => {
-    let eventData = JSON.parse(event.data)
-    let messageItem = eventData.item
-    messages.push(messageItem)
-}
-db.collection("messages").listen(onMessageEvent)
+  let eventData = JSON.parse(event.data);
+  let messageItem = eventData.item;
+  messages.push(messageItem);
+};
+db.collection('messages').listen(onMessageEvent);
 ```
+
 </CodeGroupItem>
 
 <CodeGroupItem title="Flutter">
@@ -493,43 +523,48 @@ db.collection("messages").listen(onMessageEvent)
          print(event)
      });
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
 ## Bagel User with Items
 
 ### View Bagel Users
+
 To view the bagel users associated with an item.
 
 <CodeGroup>
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("books").item("ITEM_ID").users()
+db.collection('books').item('ITEM_ID').users();
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
 Expected Response
 
-
 ```json
-[{"userID": "213-3213c-123c123-1232133"}]
+[{ "userID": "213-3213c-123c123-1232133" }]
 ```
+
 ### Add a Bagel User
-In order to add the api token must have User Admin permissions, it is suggested to only use this token server side
-To add a Bagel User to an item
+
+In order to add the api token must have User Admin permissions, it is suggested to only use this token server side To add a Bagel User to an item
 
 <CodeGroup>
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("books").item("ITEM_ID").addUser("USER_ID")
+db.collection('books').item('ITEM_ID').addUser('USER_ID');
 ```
+
 </CodeGroupItem>
 </CodeGroup>
 
 ### Remove a Bagel User
+
 In order to remove the api token must have User Admin permissions, it is suggested to only use this token server side
 
 To remove a Bagel User from an item
@@ -538,7 +573,8 @@ To remove a Bagel User from an item
 <CodeGroupItem title="JS">
 
 ```js
-db.collection("books").item("ITEM_ID").removeUser("USER_ID")
+db.collection('books').item('ITEM_ID').removeUser('USER_ID');
 ```
+
 </CodeGroupItem>
 </CodeGroup>

@@ -1,6 +1,25 @@
 :root {
   scroll-behavior: smooth;
+  --c-brand: #006DFF;
+  --c-brand-light: #4394ff;
+  --c-tip: #3064a8;
+
+  // --c-border: #006DFF;
+  // --c-border-dark: #006DFF;
 }
+html.dark {
+//  003aab
+  --c-brand: #4f72f3;
+  --c-text-accent: #4f72f3;
+  --c-brand-light: #4394ff;
+  --c-tip: #3064a8;
+  --c-tip-text-accent: #3064a8;
+
+  // --c-border: #006DFF;
+  // --c-border-dark: #006DFF;
+}
+
+
 .home {
   margin-top: 150px;
 }
