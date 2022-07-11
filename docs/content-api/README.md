@@ -352,7 +352,11 @@ db.collection("articles").post({YOUR_OBJECT})
 </CodeGroupItem>
 </CodeGroup>
 
-:::tip Note: <img alt="New Field Creation" src="/assets/images/New_Field.png"/> <br/> **Name** is for internal use only. <br/> Use the automatically generated **Slug** (case sensitive) :::
+:::tip
+Note:
+<br/> **Name** is for internal use only. <br/> Use the automatically generated **Slug** (case sensitive)
+<img alt="New Field Creation" src="/assets/images/New_Field.png"/>
+:::
 
 expected response
 
