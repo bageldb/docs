@@ -116,3 +116,6 @@ node_modules
 docs/docks_review/
 docks_next/
 .yarn/
+
+# Local Netlify folder
+.netlify
