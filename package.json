@@ -21,5 +21,6 @@
   "dependencies": {
     "node-html-parser": "^5.2.0",
     "slugify": "^1.6.5"
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }

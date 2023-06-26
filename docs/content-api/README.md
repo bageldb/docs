@@ -124,9 +124,7 @@ db.collection("articles").get()
 </CodeGroupItem>
 </CodeGroup>
 
-:::tip Note:
-<img alt="New Collection Creation" src="/assets/images/New_Collection_wide.png"/> <br/> **Collection Name** is for internal use only. <br/> Use the automatically generated **Collection ID** (case sensitive)
-:::
+:::tip Note: <img alt="New Collection Creation" src="/assets/images/New_Collection_wide.png"/> <br/> **Collection Name** is for internal use only. <br/> Use the automatically generated **Collection ID** (case sensitive) :::
 
 For a nested collection, `item()` and `collection()` can be chained till the correct collection and item is reached
 
@@ -299,18 +297,16 @@ db.collection('hotels')
 
 </CodeGroupItem>
 
-<CodeGroupItem title="Flutter">
+<!-- <CodeGroupItem title="Flutter">
 
 ```dart
 
 ```
 
-</CodeGroupItem>
+</CodeGroupItem> -->
 </CodeGroup>
 
 ## Get a Single Item
-
-Retrieve a single item
 
 <CodeGroup>
 <CodeGroupItem title="JS">
@@ -352,10 +348,14 @@ db.collection("articles").post({YOUR_OBJECT})
 </CodeGroupItem>
 </CodeGroup>
 
-:::tip
-Note:
-<br/> **Name** is for internal use only. <br/> Use the automatically generated **Slug** (case sensitive)
-<img alt="New Field Creation" src="/assets/images/New_Field.png"/>
+:::tip Note:
+
+<!--  -->
+
+**Name** is for internal use only. <br/> Use the automatically generated **Slug** (case sensitive) <img alt="New Field Creation" src="/assets/images/New_Field.png"/>
+
+<!--  -->
+
 :::
 
 expected response
@@ -582,3 +582,88 @@ db.collection('books').item('ITEM_ID').removeUser('USER_ID');
 
 </CodeGroupItem>
 </CodeGroup>
+
+## Version 0.3.38 onwards
+
+### Querying Collections with MongoDB "find" and "aggregate"
+
+Starting from version 0.3.38, the REST API supports querying collections based on MongoDB's "find" and "aggregate" operations. This allows for more flexible and powerful data retrieval.
+
+### Aggregation Pipeline
+
+To perform an aggregation using the REST API, you can use the following endpoint:
+
+<CodeGroup>
+
+<CodeGroupItem title="REST">
+
+```http
+https://api.bagelstudio.co/api/public/collection/{{collectionID}}/items?aggregationPipeline=[{"$match":{"_id":{"$ne":"63a491f7ea55eccfb7b1f3f3"}}},{"$sort":{"firstName":1}},{"$skip":0},{"$limit":1}]
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+You can specify the aggregation pipeline as a query parameter, `aggregationPipeline`, which should be an array of aggregation stages. Each stage is defined using MongoDB's aggregation syntax. In the example above, the pipeline includes `$match`, `$sort`, `$skip`, and `$limit` stages.
+
+### Find Method
+
+The find method can be used both via the REST API and the SDK. The syntax is similar to MongoDB's "find" operation. Here are some examples:
+
+<CodeGroup>
+<CodeGroupItem title="JS">
+
+```js
+// SDK Example
+db.collection('slug').find({ 'products.name': 'Product 1' });
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="REST">
+
+```http
+// REST API Example
+https://api.bagelstudio.co/api/public/collection/{{collectionID}}/items?find={"products.name":"Product 1"}
+```
+
+</CodeGroupItem>
+
+</CodeGroup>
+You can use multiple conditions in the query, as shown in the second example.
+
+### Date Queries
+
+When querying by date, there are specific formats to follow. Here are some examples:
+
+```javascript
+// SDK Example
+db.collection('posts')
+  .find({
+    authorName: 'John',
+    dateField: 'Date(2022-02-22)',
+    nestedCollection: {
+      $elemMatch: {
+        nestedField: 'nestedValue',
+      },
+    },
+  })
+  .get();
+```
+
+```javascript
+// SDK Example
+const { data } = await db
+  .collection('posts')
+  .find({
+    groups: {
+      $elemMatch: {
+        isClosed: false,
+      },
+    },
+  })
+  .get();
+```
+
+In the first example, the date field is specified using the format `"Date(YYYY-MM-DD)"`. The second example demonstrates querying a nested collection using `$elemMatch`.
+
+Please note that these examples are provided to showcase the usage of querying collections with MongoDB's "find" and "aggregate" operations. Adjustments might be required based on your specific implementation and requirements.
